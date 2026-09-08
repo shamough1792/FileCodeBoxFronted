@@ -38,12 +38,12 @@
             isDarkMode ? 'text-white' : 'text-gray-900'
           ]"
         >
-          登录
+          {{ t('manage.login.title') }}
         </h2>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent="submitLogin">
         <input type="hidden" name="remember" value="true" />
-        <label for="username" class="sr-only">用户名</label>
+        <label for="username" class="sr-only">{{ t('manage.login.username') }}</label>
         <input
           id="username"
           name="username"
@@ -56,7 +56,7 @@
         />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
-            <label for="password" class="sr-only">密码</label>
+            <label for="password" class="sr-only">{{ t('manage.login.password') }}</label>
             <input
               id="password"
               name="password"
@@ -70,7 +70,7 @@
                   ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 hover:border-gray-500 focus:ring-zinc-500 focus:border-zinc-500'
                   : 'bg-white/50 border-gray-300 text-gray-900 hover:border-gray-400'
               ]"
-              placeholder="密码"
+              :placeholder="t('manage.login.passwordPlaceholder')"
             />
           </div>
         </div>
@@ -87,7 +87,7 @@
             :disabled="isLoading"
           >
             <span class="absolute left-0 inset-y-0 flex items-center pl-3"> </span>
-            {{ isLoading ? '登录中...' : '登录' }}
+            {{ isLoading ? t('manage.login.loggingIn') : t('manage.login.loginButton') }}
           </button>
         </div>
       </form>
@@ -97,12 +97,14 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { BoxIcon } from 'lucide-vue-next'
 import { useAdminLogin } from '@/composables'
 import { ROUTES } from '@/constants'
 
 const isDarkMode = inject('isDarkMode')
+const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
 const { password, isLoading, handleSubmit } = useAdminLogin()
