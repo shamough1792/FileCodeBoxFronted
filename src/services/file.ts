@@ -24,6 +24,8 @@ import type {
   FileInfo,
   FileListResponse,
   FileUploadResponse,
+  LocalShareListResponse,
+  LocalShareResult,
   ShareMetadataResponse,
   ShareSelectResponse,
   TextSendResponse,
@@ -63,12 +65,12 @@ export class FileService {
   static async uploadText(
     text: string,
     expireValue = 1,
-    expireStyle = 'day'
+    expire_style = 'day'
   ): Promise<ApiResponse<TextSendResponse>> {
     const formData = new FormData()
     formData.append('text', text)
     formData.append('expire_value', String(expireValue))
-    formData.append('expire_style', expireStyle)
+    formData.append('expire_style', expire_style)
     return api.post('/share/text/', formData, multipartUploadConfig())
   }
 
@@ -265,8 +267,26 @@ export class FileService {
     return api.get('/admin/file/preview', {
       params: {
         id,
-        maxChars
+        max_chars: maxChars
       }
+    })
+  }
+
+  static async listLocalFiles(path = ''): Promise<ApiResponse<LocalShareListResponse>> {
+    return api.get('/admin/local/lists', { params: { path } })
+  }
+
+  static async shareLocalFile(payload: {
+    filename: string
+    expire_value: number
+    expire_style: string
+  }): Promise<ApiResponse<LocalShareResult>> {
+    return api.post('/admin/local/share', payload)
+  }
+
+  static async deleteLocalFile(filename: string): Promise<ApiResponse<string>> {
+    return api.delete('/admin/local/delete', {
+      data: { filename }
     })
   }
 }

@@ -70,6 +70,7 @@ export const ROUTES = {
   LOGIN: '/login',
   DASHBOARD: '/admin/dashboard',
   FILE_MANAGE: '/admin/files',
+  LOCAL_SHARE: '/admin/local',
   SETTINGS: '/admin/settings'
 } as const
 
@@ -80,6 +81,7 @@ export const ROUTE_NAMES = {
   LOGIN: 'Login',
   DASHBOARD: 'Dashboard',
   FILE_MANAGE: 'FileManage',
+  LOCAL_SHARE: 'LocalShare',
   SETTINGS: 'Settings'
 } as const
 
@@ -94,7 +96,5 @@ export const REGEX_PATTERNS = {
 export const DEFAULT_CONFIG = {
   name: 'FileCodeBox',
   description: '文件传输工具',
-  maxFileSize: FILE_SIZE_LIMITS.MAX_FILE_SIZE,
-  allowedFileTypes: ['*'] as string[],
-  expireDays: 7
+  allowed_file_types: ['*'] as string[]
 }
