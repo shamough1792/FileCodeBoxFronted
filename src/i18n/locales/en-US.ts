@@ -927,6 +927,7 @@ export default {
       password: 'Password',
       passwordPlaceholder: 'Password',
       loginButton: 'Login',
+      backToHome: 'Back to home',
       loggingIn: 'Logging in...',
       invalidPassword: 'Invalid password',
       passwordTooShort: 'Password must be at least 6 characters',

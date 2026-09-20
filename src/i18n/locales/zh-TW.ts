@@ -921,6 +921,7 @@ export default {
       password: '密碼',
       passwordPlaceholder: '密碼',
       loginButton: '登入',
+      backToHome: '返回首頁',
       loggingIn: '登入中...',
       invalidPassword: '無效的密碼',
       passwordTooShort: '密碼長度至少為6位',

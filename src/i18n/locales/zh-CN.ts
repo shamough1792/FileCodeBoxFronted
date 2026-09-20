@@ -954,6 +954,7 @@ export default {
       password: '密码',
       passwordPlaceholder: '密码',
       loginButton: '登录',
+      backToHome: '返回首页',
       loggingIn: '登录中...',
       invalidPassword: '无效的密码',
       passwordTooShort: '密码长度至少为6位',
