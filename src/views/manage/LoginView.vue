@@ -5,6 +5,16 @@
       isDarkMode ? 'bg-gray-900' : 'bg-gray-50'
     ]"
   >
+    <button
+      type="button"
+      class="absolute left-4 top-4 z-10 py-2.5 px-4 border text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-500 sm:left-6 sm:top-6"
+      :class="isDarkMode
+        ? 'border-gray-600 text-gray-200 hover:bg-gray-700'
+        : 'border-gray-300 text-gray-700 hover:bg-gray-100'"
+      @click="router.push(ROUTES.HOME)"
+    >
+      {{ t('manage.login.backToHome') }}
+    </button>
     <div class="absolute inset-0 z-0">
       <div class="cyber-grid"></div>
       <div class="floating-particles"></div>
@@ -91,16 +101,6 @@
           </button>
         </div>
       </form>
-      <button
-        type="button"
-        class="w-full mt-4 py-2.5 px-4 border text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-500"
-        :class="isDarkMode
-          ? 'border-gray-600 text-gray-200 hover:bg-gray-700'
-          : 'border-gray-300 text-gray-700 hover:bg-gray-100'"
-        @click="router.push(ROUTES.HOME)"
-      >
-        {{ t('manage.login.backToHome') }}
-      </button>
     </div>
   </div>
 </template>
